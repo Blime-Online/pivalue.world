@@ -1,5 +1,9 @@
 # 🥧 Pi Value World
 
+<p align="center">
+  <img src="website/assets/pi.png" alt="Pi Value World logo" width="160" />
+</p>
+
 **The fun GitHub challenge where you calculate 22/7 and earn your unique Pi Certificate!**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -55,11 +59,18 @@ python piclalculation.py
 
 ### Step 4: Submit for Verification
 
-```bash
-python verify.py
-```
+1. After running <code>python piclalculation.py</code>, your result JSON is generated (e.g., <code>pi_result_yourusername.json</code>).
+2. Add this file to the repository verification list (or configured path via contrib workflow).
+3. Create a Pull Request and include your Submission ID + Verification Code.
+4. Once merged, the website scans and verifies the code/ID and creates the certificate.
 
-This will create a submission file. Create a Pull Request with this file for verification.
+### Optional: Environment and CI config
+- Add `website/js/config.js` to your deployment pipeline (no secret in source control).
+- Set `GITHUB_SYNC_TOKEN` in `PiValueWebConfig` during deployment for web auto-sync.
+- In GitHub repository secrets, set:
+  - `SUPABASE_URL`
+  - `SUPABASE_SERVICE_ROLE_KEY`
+- CI workflow `/.github/workflows/sync_supabase.yml` auto-runs on `verification_list/**` push.
 
 ### Step 5: Get Your Certificate
 
@@ -274,16 +285,6 @@ Love this project? Star it on GitHub and share with your friends! ⭐
 Made with ❤️ by the Pi Value World Community
 © 2024 Pi Value World. All rights reserved.
 ```
-
----
-
-## 🎯 SEO Description
-
-**Meta Description:**
-"Pi Value World - The fun GitHub challenge where you calculate 22/7 and earn your unique Pi Certificate! Join developers worldwide testing their PC power, collecting verified Pi values, and showcasing achievements on their GitHub profiles. Free, open-source, and endlessly entertaining!"
-
-**Keywords:**
-github challenge, pi calculation, developer challenge, programming certificate, open source fun, python project, coding challenge, github portfolio, programmer certificate, 22/7 challenge
 
 ---
 

@@ -12,8 +12,8 @@
 
 // Supabase Configuration
 const SUPABASE_CONFIG = {
-    url: 'https://ywpjpzbembudsyihxylz.supabase.co',
-    anonKey: 'sb_publishable_ikmQddB_jRs42qrkHBL6tg_f65ek8YU'
+    url: (window.PiValueWebConfig && window.PiValueWebConfig.SUPABASE_URL) || 'https://ywpjpzbembudsyihxylz.supabase.co',
+    anonKey: (window.PiValueWebConfig && window.PiValueWebConfig.SUPABASE_ANON_KEY) || 'sb_publishable_ikmQddB_jRs42qrkHBL6tg_f65ek8YU'
 };
 
 // Initialize Supabase client
@@ -159,6 +159,160 @@ async function verifySubmission(code) {
     }
 }
 
+async function incrementPiCounterBy(count = 1) {
+    let success = true;
+    for (let i = 0; i < count; i += 1) {
+        const result = await incrementPiCounter();
+        if (!result.success) {
+            success = false;
+            break;
+        }
+    }
+    return { success };
+}
+
+async function upsertSubmissionFromRepo(record) {
+    /**
+     * Upsert a submission that exists in the GitHub verification list.
+     * If the submission is new or pending, mark it verified and increment Pi counter.
+     */
+    try {
+        const supabase = getSupabaseClient();
+
+        // Check existing record by submission_id
+        const existing = await supabase
+            .from('submissions')
+            .select('*')
+            .eq('submission_id', record.submission_id)
+            .single();
+
+        if (existing.error && existing.error.code !== 'PGRST116') {
+            throw existing.error;
+        }
+
+        if (!existing.data) {
+            // New submission: insert directly as verified
+            const insertPayload = {
+                ...record,
+                status: 'verified',
+                verified_at: new Date().toISOString(),
+                created_at: record.created_at || new Date().toISOString(),
+                submitted_at: record.submitted_at || new Date().toISOString()
+            };
+
+            const { error: insertError } = await supabase
+                .from('submissions')
+                .insert([insertPayload]);
+
+            if (insertError) throw insertError;
+
+            // Generate certificate record if not existing
+            await createCertificate({
+                submission_id: record.submission_id,
+                certificate_url: `https://pivalue.iths.online/certificate.html?id=${record.submission_id}`,
+                certificate_data: insertPayload
+            });
+
+            return { status: 'inserted', verified: true };
+        }
+
+        if (existing.data.status !== 'verified') {
+            const { error: updateError } = await supabase
+                .from('submissions')
+                .update({ status: 'verified', verified_at: new Date().toISOString() })
+                .eq('submission_id', record.submission_id);
+
+            if (updateError) throw updateError;
+
+            // Ensure certificate record exists
+            await createCertificate({
+                submission_id: record.submission_id,
+                certificate_url: `https://pivalue.iths.online/certificate.html?id=${record.submission_id}`,
+                certificate_data: { ...existing.data, status: 'verified' }
+            });
+
+            return { status: 'updated', verified: true };
+        }
+
+        return { status: 'already_verified', verified: false };
+    } catch (error) {
+        console.error('Error upserting repo submission:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+async function syncVerificationListFromGitHub(config = {}) {
+    /**
+     * Sync submissions from GitHub verification_list folder and auto-verify
+     * config: { owner, repo, path, token }
+     */
+    try {
+        const { owner, repo, path, token } = config;
+        if (!owner || !repo || !path) {
+            throw new Error('GitHub sync config is incomplete');
+        }
+
+        const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+        const headers = {
+            Accept: 'application/vnd.github+json'
+        };
+        if (token) {
+            headers.Authorization = `Bearer ${token}`;
+        }
+
+        const listResponse = await fetch(apiUrl, { headers });
+        if (!listResponse.ok) {
+            throw new Error(`GitHub list fetch failed: ${listResponse.status}`);
+        }
+
+        const files = await listResponse.json();
+        if (!Array.isArray(files)) {
+            throw new Error('GitHub verification list directory not found or empty');
+        }
+
+        let newlyVerifiedCount = 0;
+
+        for (const file of files) {
+            if (!file.name.endsWith('.json') || file.type !== 'file') continue;
+
+            const contentResponse = await fetch(file.download_url, { headers });
+            if (!contentResponse.ok) continue;
+
+            const text = await contentResponse.text();
+            let payload;
+            try {
+                payload = JSON.parse(text);
+            } catch (err) {
+                console.warn(`Skipping invalid JSON file ${file.name}`);
+                continue;
+            }
+
+            if (!payload.submission_id || !payload.verification_code) {
+                console.warn(`Skipping incomplete submission data in ${file.name}`);
+                continue;
+            }
+
+            const upsertResult = await upsertSubmissionFromRepo(payload);
+            if (upsertResult.verified) {
+                newlyVerifiedCount += 1;
+            }
+        }
+
+        if (newlyVerifiedCount > 0) {
+            // Increment global Pi counter by 0.01 for each new verified item
+            const incResult = await incrementPiCounterBy(newlyVerifiedCount);
+            if (!incResult.success) {
+                console.warn('Failed to increment Pi counter for all verified submissions');
+            }
+        }
+
+        return { success: true, newlyVerifiedCount };
+    } catch (error) {
+        console.error('Error syncing verification list from GitHub:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 async function getPiCounter() {
     /**
      * Get the current Pi counter value
@@ -260,8 +414,11 @@ window.PiValueDB = {
     searchSubmission,
     getRecentSubmissions,
     verifySubmission,
+    syncVerificationListFromGitHub,
+    upsertSubmissionFromRepo,
     getPiCounter,
     incrementPiCounter,
+    incrementPiCounterBy,
     createCertificate,
     getCertificate,
     getSupabaseClient

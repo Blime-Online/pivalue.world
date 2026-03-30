@@ -138,16 +138,21 @@ def main():
     with open(result_file, 'w') as f:
         json.dump(result_data, f, indent=2)
     
+    # Also place in verification_list for auto sync to the website
+    import os
+    verification_dir = 'verification_list'
+    os.makedirs(verification_dir, exist_ok=True)
+    verification_path = os.path.join(verification_dir, result_file)
+    with open(verification_path, 'w') as f:
+        json.dump(result_data, f, indent=2)
+
     print(f"\n💾 Results saved to: {result_file}")
-    
-    # Copy instructions
-    print("\n" + "=" * 60)
-    print("📋 Next Steps:")
+    print(f"📂 Verification copy saved to: {verification_path}")
     print("=" * 60)
     print("1. Copy your Verification Code and Submission ID")
-    print("2. Go to the verification page in the repository")
-    print("3. Submit your code for verification")
-    print("4. Wait for approval and receive your certificate!\n")
+    print("2. Add the JSON output file to the repository verification list (e.g., verification_list/")
+    print("3. Create a GitHub Pull Request with your submission")
+    print("4. Once merged, the website scans and verifies your code/ID and generates the certificate!\n")
     
     # Offer to copy code
     copy_choice = input("Would you like to save the code to clipboard? (y/n): ").strip().lower()

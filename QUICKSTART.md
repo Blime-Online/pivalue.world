@@ -50,13 +50,12 @@ The script will ask you:
 
 ### Step 4: Submit for Verification (1 minute)
 
-```bash
-python verify.py
-```
+1. After calculation finishes, locate `pi_result_{username}.json`.
+2. Add this file to the repository verification list (for example: `verification_list/`).
+3. Commit and push to your fork.
+4. Create a Pull Request with the details.
 
-Follow the prompts to submit your results.
-
-### Step 5: Create Pull Request (2 minutes)
+### Step 5: PR Review and Merge (2 minutes)
 
 1. Go to GitHub repository
 2. Fork the repository

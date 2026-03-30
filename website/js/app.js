@@ -23,6 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Auto-sync with GitHub verification_list and apply updates
+document.addEventListener('DOMContentLoaded', async () => {
+    if (window.PiValueDB && typeof window.PiValueDB.syncVerificationListFromGitHub === 'function') {
+        const config = window.PiValueWebConfig || {};
+        const githubSyncConfig = {
+            owner: 'harinandsindukumar',
+            repo: 'pivalue.world',
+            path: 'verification_list',
+            token: config.GITHUB_SYNC_TOKEN || '' // Optional: set a GitHub token for private repo / rate limit safety
+        };
+
+        const syncResult = await window.PiValueDB.syncVerificationListFromGitHub(githubSyncConfig);
+        if (syncResult.success && syncResult.newlyVerifiedCount > 0) {
+            console.info(`✔️ Auto-synced ${syncResult.newlyVerifiedCount} verification(s) from repository.`);
+        }
+
+        // Refresh shown counter after sync
+        if (typeof loadPiCounter === 'function') {
+            await loadPiCounter();
+        }
+    }
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

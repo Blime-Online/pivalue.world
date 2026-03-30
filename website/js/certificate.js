@@ -71,8 +71,8 @@ function showPlaceholder() {
                 <li>Wait for maintainer approval</li>
                 <li>Once verified, you'll receive a link to your certificate</li>
             </ol>
-            <a href="verify.html" class="btn btn-primary btn-large" style="margin-top: 2rem;">
-                Submit Your Results
+            <a href="README.md" class="btn btn-primary btn-large" style="margin-top: 2rem;">
+                Submit Your Results via PR instructions
             </a>
         </div>
     `;

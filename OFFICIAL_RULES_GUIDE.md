@@ -95,27 +95,32 @@ We pledge to make participation in Pi Value World a harassment-free experience f
 
 1. **Run Calculation**
    ```bash
-   python calculation.py
+   python piclalculation.py
    # Follow prompts
    # Save your verification code and submission ID
    ```
 
-2. **Visit Website**
-   - Go to https://pivalue.iths.online/verify
-   - Enter your details:
-     - GitHub username
-     - Verification code (16 characters)
-     - Submission ID (12 characters)
+2. **Prepare Submission File**
+   - The script saves a JSON file (e.g., `pi_result_yourusername.json`).
+   - Verify `github_username`, `submission_id`, and `verification_code` are correct.
 
-3. **Submit for Verification**
-   - Click "Submit for Verification"
-   - Wait for confirmation
-   - Status will show as "Pending"
+3. **Add to Verification List
+   - Add your result JSON to the repository verification list path (e.g., `verification_list/`).
+   - Include a short README update in your PR describing the run.
 
-4. **Wait for Approval**
-   - Maintainers review submissions manually
-   - Usually approved within 1-3 days
-   - You'll receive notification when verified
+4. **Create Pull Request**
+   - Fork the repository.
+   - Commit your submission file.
+   - Open a PR titled `feat: add submission for <username>`.
+
+5. **Automatic Scan & Verification**
+   - Once merged, the web system scans the verification list.
+   - It checks Submission ID + Verification Code and marks the record as verified.
+   - Your certificate is generated automatically.
+
+6. **Approval / Certificate**
+   - You may still receive manual review details via PR comments.
+   - Verified entries appear in the search page within minutes.
 
 ### What to Include
 
