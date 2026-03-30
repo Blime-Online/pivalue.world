@@ -64,18 +64,10 @@ python piclalculation.py
 3. Create a Pull Request and include your Submission ID + Verification Code.
 4. Once merged, the website scans and verifies the code/ID and creates the certificate.
 
-### Optional: Environment and CI config
-- Add `website/js/config.js` to your deployment pipeline (no secret in source control).
-- Set `GITHUB_SYNC_TOKEN` in `PiValueWebConfig` during deployment for web auto-sync.
-- In GitHub repository secrets, set:
-  - `SUPABASE_URL`
-  - `SUPABASE_SERVICE_ROLE_KEY`
-- CI workflow `/.github/workflows/sync_supabase.yml` auto-runs on `verification_list/**` push.
-
 ### Step 5: Get Your Certificate
 
 Once your PR is merged:
-1. Visit [https://pivalue.world/search](https://pivalue.world/search)
+1. Visit [https://pivalue.world/search](https://pivalue.iths.online/search)
 2. Search for your Submission ID
 3. Download your certificate or share the link!
 
@@ -185,7 +177,7 @@ Each certificate includes:
 ## 🔍 Search & Verify
 
 Anyone can verify certificates:
-1. Visit [https://pivalue.world/search](https://pivalue.world/search)
+1. Visit [https://pivalue.world/search](https://pivalue.iths.online/search)
 2. Enter the Submission ID
 3. View complete details and authenticity
 
