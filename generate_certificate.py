@@ -159,7 +159,7 @@ def create_certificate(username, time_limit, calculations, precision,
     
     # Footer with Pi Value World branding
     footer_y = height - 200
-    footer_text = "Pi Value World | https://pivalue.world"
+    footer_text = "Pi Value World | https://pivalue.iths.online"
     footer_font = ImageFont.truetype("arial.ttf", 30)
     draw.text((width//2, footer_y), footer_text, fill='#666666', font=footer_font, anchor="mm")
     

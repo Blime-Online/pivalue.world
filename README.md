@@ -6,7 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/harinandsindukumar/pivalue.world)](https://github.com/harinandsindukumar/pivalue.world/issues)
 [![GitHub stars](https://img.shields.io/github/stars/harinandsindukumar/pivalue.world?style=social)](https://github.com/harinandsindukumar/pivalue.world/stargazers)
 
-🌐 **Live Website:** [https://pivalue.world](https://pivalue.world)
+🌐 **Live Website:** [https://pivalue.iths.online](https://pivalue.iths.online)
 
 **Created by:** [Harinand Sindukumar](https://github.com/harinandsindukumar/)  
 **Contact:** harinand@iths.online | [iths.online](https://iths.online)
