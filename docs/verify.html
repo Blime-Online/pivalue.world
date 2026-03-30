@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Verification | Pi Value World</title>
+    <meta name="description" content="Submit your Pi calculation results for verification and receive your certificate">
+    <link rel="icon" type="image/png" href="assets/pi.png">
+    <link rel="apple-touch-icon" href="assets/pi.png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/pi.png" alt="Pi Value World Logo" class="logo-image">
+                Pi Value World
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Submission workflow has changed</h1>
+                <p>Submissions are now accepted through GitHub PR with verification data.</p>
+            </div>
+
+            <div class="form-container">
+                <div class="instructions">
+                    <h3>📋 Updated Submission Process</h3>
+                    <ol>
+                        <li>Run <code>python piclalculation.py</code> to generate your results.</li>
+                        <li>Copy your <strong>Submission ID</strong> and <strong>Verification Code</strong>.</li>
+                        <li>Add the JSON file to <code>verification_list</code> (or equivalent repo path).</li>
+                        <li>Create a Pull Request describing your run.
+                            Once merged, the web system scans the list, verifies the code, and generates the certificate.
+                        </li>
+                    </ol>
+
+                    <p>✅ The previous on-site submit form has been retired. Please use the PR-based flow only.</p>
+                    <p>🔎 Use <a href="search.html">Search</a> to verify your submission status and certificate.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🥧 Pi Value World</h3>
+                    <p>The fun GitHub challenge for developers worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world">GitHub</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/README.md">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pi Value World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

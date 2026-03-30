@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Submissions | Pi Value World</title>
+    <meta name="description" content="Search and verify Pi calculation submissions by ID">
+    <link rel="icon" type="image/png" href="assets/pi.png">
+    <link rel="apple-touch-icon" href="assets/pi.png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/pi.png" alt="Pi Value World Logo" class="logo-image">
+                Pi Value World
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html" class="active">Search</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Search Submissions</h1>
+                <p>Find and verify any submission by its ID or verification code</p>
+            </div>
+
+            <div class="search-container">
+                <form id="searchForm" class="search-form">
+                    <div class="search-input-group">
+                        <input type="text" id="searchQuery" name="searchQuery" 
+                               placeholder="Enter Submission ID or Verification Code" required>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+
+                <div class="search-tips">
+                    <p><strong>Examples:</strong></p>
+                    <code>abc123def456</code> (Submission ID)
+                    <span>or</span>
+                    <code>A1B2C3D4E5F6G7H8</code> (Verification Code)
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results"></div>
+
+            <div id="submissionDetail" class="submission-detail" style="display: none;">
+                <div class="detail-header">
+                    <h2>Submission Details</h2>
+                    <button id="closeDetail" class="btn-close">×</button>
+                </div>
+                
+                <div class="detail-content">
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Status:</label>
+                            <span id="detailStatus" class="status-badge"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>GitHub Username:</label>
+                            <span id="detailUsername"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Time Limit:</label>
+                            <span id="detailTimeLimit"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Calculations:</label>
+                            <span id="detailCalculations"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Precision:</label>
+                            <span id="detailPrecision"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Submitted:</label>
+                            <span id="detailSubmitted"></span>
+                        </div>
+                        <div class="detail-item full-width">
+                            <label>Verification Code:</label>
+                            <code id="detailCode"></code>
+                        </div>
+                        <div class="detail-item full-width">
+                            <label>Submission ID:</label>
+                            <code id="detailId"></code>
+                        </div>
+                    </div>
+
+                    <div class="detail-actions">
+                        <button id="generateCertBtn" class="btn btn-success" style="display: none;">
+                            🎓 Generate Certificate
+                        </button>
+                        <button id="copyLinkBtn" class="btn btn-secondary">
+                            🔗 Copy Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-submissions">
+                <h2>Recent Submissions</h2>
+                <div id="recentList" class="recent-list">
+                    <p class="loading">Loading recent submissions...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🥧 Pi Value World</h3>
+                    <p>The fun GitHub challenge for developers worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world">GitHub</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/README.md">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pi Value World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
