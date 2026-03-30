@@ -1,5 +1,7 @@
 /**
  * Pi Value World - Certificate Generation and Management
+ * Generates certificates with username, time limit, calculations, precision,
+ * verification code, submission ID, and Pi Value World logo
  */
 
 let currentSubmission = null;
