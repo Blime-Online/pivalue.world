@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Pi Value World | Calculate 22/7 & Earn Your Pi Certificate</title>
+    <meta name="description" content="Pi Value World - The fun GitHub challenge where you calculate 22/7 and earn your unique Pi Certificate! Join developers worldwide testing their PC power, collecting verified Pi values, and showcasing achievements on their GitHub profiles. Free, open-source, and endlessly entertaining!">
+    <meta name="keywords" content="github challenge, pi calculation, developer challenge, programming certificate, open source fun, python project, coding challenge, github portfolio, programmer certificate, 22/7 challenge">
+    <meta name="author" content="Pi Value World Team">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pi Value World | Calculate 22/7 & Earn Certificates">
+    <meta property="og:description" content="Join the fun GitHub challenge! Calculate 22/7, test your PC power, and earn a verified certificate for your profile.">
+    <meta property="og:url" content="https://pivalue.world">
+    <meta property="og:image" content="https://pivalue.world/assets/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pi Value World">
+    <meta name="twitter:description" content="Calculate 22/7 and earn your unique Pi Certificate!">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/pi.png">
+    <link rel="apple-touch-icon" href="assets/pi.png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/pi.png" alt="Pi Value World Logo" class="logo-image">
+                Pi Value World
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="verify.html">Submit</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Counter -->
+    <header class="hero">
+        <div class="container">
+            <div class="pi-counter">
+                <span class="counter-label">Current Pi Value</span>
+                <h1 class="counter-value" id="piCounter">3.14</h1>
+                <p class="counter-description">Increments with every successful merge!</p>
+            </div>
+            
+            <div class="hero-content">
+                <h2>Welcome to the Ultimate Pi Challenge!</h2>
+                <p>Calculate 22/7, test your PC power, and earn a verified certificate for your GitHub profile</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/harinandsindukumar/pivalue.world" class="btn btn-primary">Get Started</a>
+                    <a href="search.html" class="btn btn-secondary">View Submissions</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Clone Repository</h3>
+                    <p>Clone our GitHub repository to get the Python calculation script</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Run Script</h3>
+                    <p>Execute the script and calculate 22/7 for 2, 5, or 10 minutes</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Get Code</h3>
+                    <p>Receive your unique 16-character verification code and ID</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Submit PR</h3>
+                    <p>Create a pull request with your results for verification</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Get Certified</h3>
+                    <p>Once approved, download your certificate and share it!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Participate?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Earn Certificate</h3>
+                    <p>Get a verified certificate with your unique results</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Test PC Power</h3>
+                    <p>See how fast your computer can perform calculations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Join Community</h3>
+                    <p>Be part of a global community of developers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your calculation speed and precision</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Enhance Profile</h3>
+                    <p>Showcase your achievement on GitHub</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Learn & Fun</h3>
+                    <p>Learn about precision calculations while having fun</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stats -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">Live Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="totalSubmissions">0</h3>
+                    <p>Total Submissions</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="verifiedCount">0</h3>
+                    <p>Verified Certificates</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="activeUsers">0</h3>
+                    <p>Active Participants</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="globalPi">3.14</h3>
+                    <p>Global Pi Counter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Calculating?</h2>
+            <p>Join thousands of developers worldwide in this fun challenge</p>
+            <a href="https://github.com/harinandsindukumar/pivalue.world" class="btn btn-large">Clone Repository Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <img src="assets/pi.png" alt="Pi Value World Logo" class="footer-logo">
+                        Pi Value World
+                    </h3>
+                    <p>The fun GitHub challenge for developers worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="verify.html">Submit</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/README.md">Documentation</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/SECURITY.md">Security</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/LICENSE">License</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pi Value World. All rights reserved.</p>
+                <p>Made with ❤️ by the Pi Value World Community</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/supabase.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

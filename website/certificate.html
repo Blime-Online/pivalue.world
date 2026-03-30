@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate | Pi Value World</title>
+    <meta name="description" content="View and download your Pi Value World certificate">
+    <link rel="icon" type="image/png" href="assets/pi.png">
+    <link rel="apple-touch-icon" href="assets/pi.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/pi.png" alt="Pi Value World Logo" class="logo-image">
+                Pi Value World
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="verify.html">Submit</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="certificate-container" id="certificateContainer">
+                <div class="certificate-header">
+                    <h1>🥧 Certificate of Achievement 🥧</h1>
+                    <p class="subtitle">Pi Value World Challenge</p>
+                </div>
+
+                <div class="certificate-body">
+                    <div class="certificate-text">
+                        <p class="presented-to">This is to certify that</p>
+                        <h2 id="certUsername" class="username">@username</h2>
+                        
+                        <p class="achievement-text">has successfully completed the Pi Value World Challenge</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="stat-label">Time Limit</span>
+                                <span id="certTimeLimit" class="stat-value">0 min</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Calculations</span>
+                                <span id="certCalculations" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">Precision</span>
+                                <span id="certPrecision" class="stat-value">0 digits</span>
+                            </div>
+                        </div>
+
+                        <div class="verification-info">
+                            <p><strong>Verification Code:</strong> <code id="certCode">XXXXXXXXXXXXXXXX</code></p>
+                            <p><strong>Submission ID:</strong> <code id="certId">XXXXXXXXXXXX</code></p>
+                            <p><strong>Date:</strong> <span id="certDate">-</span></p>
+                        </div>
+                    </div>
+
+                    <div class="certificate-seal">
+                        <div class="seal-inner">
+                            <span class="seal-emoji">🥧</span>
+                            <span class="seal-text">VERIFIED</span>
+                            <span class="seal-pi">π</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-footer">
+                    <p>Pi Value World | https://pivalue.world</p>
+                    <p class="signature">Authorized by Pi Value World Team</p>
+                </div>
+            </div>
+
+            <div class="certificate-actions">
+                <button id="downloadPngBtn" class="btn btn-primary btn-large">
+                    📥 Download PNG
+                </button>
+                <button id="downloadPdfBtn" class="btn btn-primary btn-large">
+                    📄 Download PDF
+                </button>
+                <button id="shareLinkBtn" class="btn btn-secondary btn-large">
+                    🔗 Copy Shareable Link
+                </button>
+            </div>
+
+            <div class="sharing-options">
+                <h3>Share Your Achievement</h3>
+                <div class="social-share">
+                    <a href="#" id="shareGithub" class="share-btn" title="Add to GitHub Profile">
+                        🐙 GitHub
+                    </a>
+                    <a href="#" id="shareTwitter" class="share-btn" target="_blank" title="Share on Twitter">
+                        🐦 Twitter
+                    </a>
+                    <a href="#" id="shareLinkedIn" class="share-btn" target="_blank" title="Share on LinkedIn">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🥧 Pi Value World</h3>
+                    <p>The fun GitHub challenge for developers worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="verify.html">Submit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pi Value World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- html2canvas for screenshot generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/certificate.js"></script>
+</body>
+</html>

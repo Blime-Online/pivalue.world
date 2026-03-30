@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Verification | Pi Value World</title>
+    <meta name="description" content="Submit your Pi calculation results for verification and receive your certificate">
+    <link rel="icon" type="image/png" href="assets/pi.png">
+    <link rel="apple-touch-icon" href="assets/pi.png">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/pi.png" alt="Pi Value World Logo" class="logo-image">
+                Pi Value World
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="verify.html" class="active">Submit</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="https://github.com/harinandsindukumar/pivalue.world" target="_blank">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Submit Your Results</h1>
+                <p>Enter your verification code to submit for certificate generation</p>
+            </div>
+
+            <div class="form-container">
+                <form id="verificationForm" class="verification-form">
+                    <div class="form-group">
+                        <label for="submissionId">Submission ID *</label>
+                        <input type="text" id="submissionId" name="submissionId" required 
+                               placeholder="e.g., abc123def456" pattern="[a-zA-Z0-9]{12}"
+                               title="Submission ID should be 12 alphanumeric characters">
+                        <small>Your unique submission identifier</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="verificationCode">Verification Code *</label>
+                        <input type="text" id="verificationCode" name="verificationCode" required
+                               placeholder="e.g., A1B2C3D4E5F6G7H8" pattern="[A-Z0-9]{16}"
+                               title="Verification code should be 16 uppercase alphanumeric characters">
+                        <small>Your 16-character verification code</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="githubUsername">GitHub Username *</label>
+                        <input type="text" id="githubUsername" name="githubUsername" required
+                               placeholder="e.g., harinandsindukumar"
+                               pattern="[a-zA-Z0-9][a-zA-Z0-9-]{0,38}"
+                               title="Valid GitHub username">
+                        <small>Your GitHub username (same as used in calculation)</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Submit for Verification
+                        </button>
+                    </div>
+                </form>
+
+                <div id="statusMessage" class="status-message"></div>
+
+                <div class="instructions">
+                    <h3>📋 How to Find Your Codes</h3>
+                    <ol>
+                        <li>Run the <code>piclalculation.py</code> script</li>
+                        <li>Complete the calculation challenge</li>
+                        <li>Copy the Submission ID and Verification Code displayed</li>
+                        <li>Return here and enter them in the form above</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <strong>💡 Tip:</strong> Your results are also saved in a JSON file named 
+                        <code>pi_result_yourusername.json</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="what-next">
+                <h2>What Happens Next?</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h4>Submission Received</h4>
+                            <p>Your verification details are submitted to our system</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h4>Manual Review</h4>
+                            <p>Maintainers review your submission for authenticity</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h4>PR Merged</h4>
+                            <p>Once approved, your submission is merged into the repository</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content">
+                            <h4>Certificate Generated</h4>
+                            <p>Your unique certificate is created and ready to download!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🥧 Pi Value World</h3>
+                    <p>The fun GitHub challenge for developers worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rules.html">Rules</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world">GitHub</a></li>
+                        <li><a href="https://github.com/harinandsindukumar/pivalue.world/blob/main/README.md">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Pi Value World. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
