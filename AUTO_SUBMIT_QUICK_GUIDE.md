@@ -1,4 +1,4 @@
-# 🚀 Auto-Submit Quick Reference
+# 🚀 One-Command Submission Guide
 
 **Run from ANYWHERE in your repository!**
 
@@ -9,7 +9,7 @@
 ### One Command Does Everything!
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **That's it!** No need to navigate folders or remember git commands.
@@ -18,7 +18,7 @@ python auto_submit.py
 
 ## 📋 What It Does
 
-When you run `python auto_submit.py`:
+When you run `python submit_now.py`:
 
 1. ✅ **Finds your submission** - Locates latest JSON file
 2. ✅ **Reads your username** - From the JSON data

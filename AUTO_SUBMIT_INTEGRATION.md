@@ -158,7 +158,7 @@ git push</code></pre>
 **After running calculation, submit to GitHub easily:**
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **What it does:**

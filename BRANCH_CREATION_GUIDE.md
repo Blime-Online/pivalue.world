@@ -17,7 +17,7 @@ git push  # Pushed to main branch ❌
 ### New Workflow (CORRECT):
 ```bash
 # Auto-creates new branch for submission
-python auto_submit.py
+python submit_now.py
 # Creates: submission/username-1234567890
 # Pushes to that branch
 # Makes PR easy and clean! ✅
@@ -27,7 +27,7 @@ python auto_submit.py
 
 ## 🎯 What Changed
 
-### Auto-Submit Script Now:
+### One-Command Submit Script Now:
 
 1. ✅ **Creates new branch automatically**
    - Format: `submission/username-timestamp`
@@ -51,7 +51,7 @@ python auto_submit.py
 1. FORK              → GitHub (main branch)
 2. CLONE             → Your computer (main branch)
 3. RUN CALCULATION   → python src/piclalculation.py
-4. AUTO-SUBMIT       → python auto_submit.py
+4. One-Command Submit       → python submit_now.py
                      ↓
                      🌿 Creates: submission/username-1234567890
                      📝 Adds files
@@ -93,10 +93,10 @@ python auto_submit.py
 ```markdown
 ### Step 3: Submit to GitHub (SUPER EASY!)
 
-**Run auto-submit (creates branch automatically):**
+**Run One-Command Submit (creates branch automatically):**
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **What it does:**
@@ -118,7 +118,7 @@ python auto_submit.py
 ```markdown
 ## 📋 What It Does
 
-When you run `python auto_submit.py`:
+When you run `python submit_now.py`:
 
 1. ✅ **Creates new branch** - `submission/username-timestamp`
 2. ✅ **Finds your submission** - Locates latest JSON file
@@ -141,7 +141,7 @@ When you run `python auto_submit.py`:
 #### METHOD A - Automatic (RECOMMENDED ⭐)
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **What it does automatically:**
@@ -167,7 +167,7 @@ python auto_submit.py
 **Automatic Method:**
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **This creates:**
@@ -198,7 +198,7 @@ python auto_submit.py
 
 ```
 ============================================================
-🥧 Pi Value World - Auto-Submit Helper
+🥧 Pi Value World - One-Command Submit Helper
 ============================================================
 
 ✅ Found repository at: C:\Users\YOUR_NAME\pivalue.world
@@ -274,14 +274,14 @@ Don't worry! New submissions will use branches. Old ones still valid.
 - [ ] HOW_IT_WORKS.md - Update Step 5
 - [ ] WORKFLOW_GUIDE_COMPLETE.md - Add branch explanation
 - [ ] COMPLETE_USER_GUIDE.md - Branch workflow section
-- [ ] src/README.md - Auto-submit with branch
+- [ ] src/README.md - One-Command Submit with branch
 - [ ] verification_list/README.md - Branch mention
 
 ---
 
 ## 🎉 Summary
 
-**Auto-submit now follows professional Git workflow:**
+**One-Command Submit now follows professional Git workflow:**
 
 ```
 Old (WRONG):    Run → Commit → Push to main ❌

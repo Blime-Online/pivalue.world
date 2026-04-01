@@ -37,10 +37,10 @@ python src/piclalculation.py
 3. Let the script calculate 22/7 repeatedly
 4. **Auto-saves to verification_list/** ✅
 
-### Step 5: Auto-Submit to GitHub (RECOMMENDED!)
+### Step 5: Submit to GitHub (SUPER EASY!)
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **What it does automatically:**
@@ -52,9 +52,9 @@ python auto_submit.py
 **Example output:**
 ```
 🌿 Created branch: submission/harinandsindukumar-1711812345
-📝 Files added successfully!
-💾 Committed successfully!
-🚀 Pushed to GitHub!
+✅ Added 1 file(s)
+✅ Committed successfully!
+✅ Pushed to GitHub!
 ```
 
 ### Step 6: Create Pull Request
@@ -138,10 +138,10 @@ After PR merge (1-3 days):
 
 ## 📋 Alternative Methods
 
-### Method A: Auto-Submit (RECOMMENDED)
+### Method A: One-Command Submit (RECOMMENDED)
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 **Pros:**
@@ -149,6 +149,7 @@ python auto_submit.py
 - ✅ Creates branch automatically
 - ✅ No git knowledge needed
 - ✅ Perfect for beginners
+- ✅ Validates files before submitting
 
 ### Method B: Manual Git Commands
 
@@ -177,10 +178,10 @@ git push -u origin submission/YOUR_USERNAME
 
 ### Quick References:
 
-1. **[AUTO_SUBMIT_QUICK_GUIDE.md](AUTO_SUBMIT_QUICK_GUIDE.md)** ⭐ - One-command guide
-2. **[EASY_SUBMISSION_GUIDE.md](EASY_SUBMISSION_GUIDE.md)** - Both methods explained
-3. **[BRANCH_CREATION_GUIDE.md](BRANCH_CREATION_GUIDE.md)** ⭐ NEW - Branch workflow
-4. **[README_QUICK_REF.md](README_QUICK_REF.md)** - Updated quick start
+1. **[submit_now.py](submit_now.py)** ⭐ - One-command submission script
+2. **[AUTO_SUBMIT_QUICK_GUIDE.md](AUTO_SUBMIT_QUICK_GUIDE.md)** - Updated for submit_now.py
+3. **[EASY_SUBMISSION_GUIDE.md](EASY_SUBMISSION_GUIDE.md)** - Both methods explained
+4. **[BRANCH_CREATION_GUIDE.md](BRANCH_CREATION_GUIDE.md)** - Branch workflow
 
 ### Main Guides:
 
@@ -298,7 +299,7 @@ git push -u origin submission/YOUR_USERNAME
                      → AUTO-ADDS to verification_list/
 4. SUBMIT            → CHOOSE ONE:
                      
-   ⭐ Auto:          → python auto_submit.py
+   ⭐ One-Command:   → python submit_now.py
                      → Creates branch automatically!
                      → Commits & pushes!
                      

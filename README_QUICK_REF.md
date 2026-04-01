@@ -1,6 +1,6 @@
 # 🥧 Pi Value World - README Quick Reference
 
-**Including Auto-Submit Helper!**
+**Including One-Command Submit Helper!**
 
 ---
 
@@ -33,7 +33,7 @@ python src/piclalculation.py
 #### Method A - Automatic ⭐ RECOMMENDED
 
 ```bash
-python auto_submit.py
+python submit_now.py
 ```
 
 ✅ Finds your submission automatically  
@@ -90,7 +90,7 @@ After PR merge (1-3 days):
 ## 💡 Pro Tips
 
 ### For Beginners:
-- ✅ Use auto-submit - Just one command!
+- ✅ Use One-Command Submit - Just one command!
 - ✅ Take screenshot of your codes
 - ✅ Follow the guided steps
 
@@ -109,7 +109,7 @@ After PR merge (1-3 days):
 ## ❓ Quick FAQ
 
 **Q: Which submit method should I use?**  
-A: Auto-submit (`python auto_submit.py`) is recommended for beginners!
+A: One-Command Submit (`python submit_now.py`) is recommended for beginners!
 
 **Q: Do I need to install anything?**  
 A: No! Pure Python, no dependencies.
@@ -131,7 +131,7 @@ A: YES! Every merged PR adds +0.01.
                      → AUTO-ADDS to verification_list/
 4. SUBMIT            → CHOOSE ONE:
                      
-   ⭐ Auto:          → python auto_submit.py
+   ⭐ Auto:          → python submit_now.py
                      → DONE! (commits & pushes)
                      
    Manual:          → git commands
@@ -151,6 +151,6 @@ A: YES! Every merged PR adds +0.01.
 
 ---
 
-**Ready to start? Run `python auto_submit.py` after calculation! 🚀**
+**Ready to start? Run `python submit_now.py` after calculation! 🚀**
 
 *Last Updated: March 30, 2024*
