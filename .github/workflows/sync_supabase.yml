@@ -2,6 +2,12 @@ name: Sync Verification List to Supabase
 
 on:
   push:
+    branches:
+      - main
+    paths:
+      - 'verification_list/**'
+  pull_request:
+    types: [closed]
     paths:
       - 'verification_list/**'
 
@@ -11,6 +17,7 @@ env:
 jobs:
   sync-supabase:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
 
     steps:
     - name: Checkout repository

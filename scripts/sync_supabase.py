@@ -1,7 +1,19 @@
 #!/usr/bin/env python3
 """
-Sync verification_list JSON files to Supabase database
-Run automatically by GitHub Actions when PR is merged
+⚠️ IMPORTANT: This script runs AUTOMATICALLY via GitHub Actions!
+
+DO NOT run this manually unless you're a repository maintainer.
+
+How it works:
+1. User uploads JSON file to verification_list/ folder on GitHub
+2. User creates Pull Request and waits for merge
+3. After merge, GitHub Actions automatically runs this script
+4. Script syncs data to Supabase database
+5. Certificate becomes available on website
+
+Requirements (set in GitHub Secrets):
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
 """
 import glob
 import json
@@ -12,7 +24,14 @@ SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_SERVICE_ROLE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
 
 if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
-    raise SystemExit('SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY environment variables are required')
+    print("❌ Error: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY environment variables are required")
+    print("\n💡 For maintainers: Set these in GitHub Repository Settings → Secrets → Actions")
+    print("\n📋 Steps:")
+    print("1. Go to: https://github.com/YOUR_USERNAME/pivalue.world/settings/secrets/actions")
+    print("2. Add new secret: SUPABASE_URL")
+    print("3. Add new secret: SUPABASE_SERVICE_ROLE_KEY")
+    print("\nℹ️  Users don't need to run this - it's automatic after PR merge!")
+    raise SystemExit(1)
 
 HEADERS = {
     'Content-Type': 'application/json',

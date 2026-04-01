@@ -80,9 +80,12 @@ python piclalculation.py
 6. **Click** "Commit changes"
 7. **Create Pull Request** from your branch
 
-**After merge (1-3 days):**
-- ✅ Website auto-verifies your submission
+**After merge (automatic):**
+- ✅ GitHub Actions syncs your JSON to database
+- ✅ Website verifies your submission
 - ✅ Download certificate at: https://pivalue.iths.online/search
+
+⚠️ **Important:** Database update happens automatically after PR merge via GitHub Actions. If your submission doesn't appear after merge, contact the maintainer.
 
 ---
 

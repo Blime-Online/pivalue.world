@@ -46,12 +46,18 @@ python piclalculation.py
 
 ---
 
-## After Merge (1-3 days)
+## After Merge (Automatic)
 
-✅ Website auto-verifies your submission  
+✅ GitHub Actions runs automatically  
+✅ Your JSON is synced to database  
 ✅ Visit https://pivalue.iths.online/search  
 ✅ Search your Submission ID  
-✅ Download your certificate! 🎉
+✅ Download your certificate! 🎉  
+
+⚠️ **If certificate doesn't appear after merge:**  
+- Wait 5-10 minutes for GitHub Actions to complete  
+- Check if maintainer set up Supabase secrets  
+- Contact maintainer if still not showing
 
 ---
 
