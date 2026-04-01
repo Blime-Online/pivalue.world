@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+Sync verification_list JSON files to Supabase database
+Run automatically by GitHub Actions when PR is merged
+"""
 import glob
 import json
 import os
