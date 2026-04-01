@@ -31,45 +31,75 @@ Pi Value World is a fun, open-source project where developers worldwide test the
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (6 Super Simple Steps!)
 
-### Step 1: Clone the Repository
+### Step 1: Fork the Repository
 
 ```bash
-git clone https://github.com/harinandsindukumar/pivalue.world.git
+# Click "Fork" button on GitHub at:
+# https://github.com/harinandsindukumar/pivalue.world
+```
+
+### Step 2: Clone Your Fork
+
+```bash
+git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 cd pivalue.world
 ```
 
-### Step 2: Run the Calculation Script
+### Step 3: Run the Calculation Script
 
 ```bash
-python piclalculation.py
+python src/piclalculation.py
 ```
 
 **Requirements:**
 - Python 3.6 or higher
 - No external dependencies required!
 
-### Step 3: Follow the Prompts
+### Step 4: Follow the Prompts
 
 1. Enter your GitHub username
 2. Choose your time limit (2, 5, or 10 minutes)
 3. Let the script calculate 22/7 repeatedly
-4. Save your Verification Code and Submission ID
+4. **Auto-saves to verification_list/** ✅
+5. **Save your Verification Code + Submission ID!** 🔑
 
-### Step 4: Submit for Verification
+### Step 5: Auto-Submit to GitHub (ONE COMMAND!)
 
-1. After running <code>python piclalculation.py</code>, your result JSON is generated (e.g., <code>pi_result_yourusername.json</code>).
-2. Add this file to the repository verification list (or configured path via contrib workflow).
-3. Create a Pull Request and include your Submission ID + Verification Code.
-4. Once merged, the website scans and verifies the code/ID and creates the certificate.
+```bash
+python submit_now.py
+```
 
-### Step 5: Get Your Certificate
+**What it does automatically:**
+- 🌿 **Creates new branch**: `submission/yourname-timestamp`
+- 📝 **Adds files to git**
+- 💾 **Commits changes**
+- 🚀 **Pushes branch to GitHub**
 
-Once your PR is merged:
-1. Visit [https://pivalue.world/search](https://pivalue.iths.online/search)
-2. Search for your Submission ID
-3. Download your certificate or share the link!
+**Example output:**
+```
+🌿 Created branch: submission/harinandsindukumar-1711812345
+✅ Added 1 file(s)
+✅ Committed successfully!
+✅ Pushed to GitHub!
+```
+
+### Step 6: Create Pull Request & Get Certificate!
+
+**GitHub shows PR link automatically!**
+
+Or manually:
+1. Go to: https://github.com/harinandsindukumar/pivalue.world
+2. Click 'Pull requests' → 'New pull request'
+3. Select: `base: main ← compare: submission/yourname...`
+4. Title: `feat: add submission for YOUR_USERNAME`
+5. Include your Submission ID + Verification Code
+
+**After merge (1-3 days):**
+- ✅ Website auto-verifies your submission
+- ✅ Status: Not Verified → VERIFIED
+- ✅ Download at: https://pivalue.iths.online/search
 
 ---
 
@@ -77,32 +107,37 @@ Once your PR is merged:
 
 ```
 ┌─────────────────┐
-│  1. Clone Repo  │
+│  1. Fork Repo   │
 └────────┬────────┘
          │
          ▼
 ┌─────────────────┐
-│  2. Run Script  │ ───► Calculates 22/7 repeatedly
+│  2. Clone       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  3. Run Script  │ ───► Calculates 22/7 repeatedly
 └────────┬────────┘      Records PC performance
          │
          ▼
 ┌─────────────────┐
-│  3. Get Code    │ ───► Unique 16-char code + ID
+│  4. Get Code    │ ───► Unique 16-char code + ID
 └────────┬────────┘
          │
          ▼
 ┌─────────────────┐
-│  4. Submit PR   │ ───► For verification
+│  5. Auto-Submit │ ───► python submit_now.py
+└────────┬────────┘      Creates branch, commits, pushes
+         │
+         ▼
+┌─────────────────┐
+│  6. Create PR   │ ───► GitHub shows link!
 └────────┬────────┘
          │
          ▼
 ┌─────────────────┐
-│  5. Approval    │ ───► Maintainer merges PR
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  6. Certificate │ ───► Download or share!
+│  7. After Merge │ ───► Auto-verify → Certificate!
 └─────────────────┘
 ```
 
