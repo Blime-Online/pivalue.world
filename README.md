@@ -31,182 +31,74 @@ Pi Value World is a fun, open-source project where developers worldwide test the
 
 ---
 
-## 🚀 Quick Start (6 Super Simple Steps!)
+## 🚀 Quick Start (Super Simple!)
 
-### Step 1: Fork the Repository
+**Just 3 Easy Steps:**
 
-```bash
-# Click "Fork" button on GitHub at:
-# https://github.com/harinandsindukumar/pivalue.world
+```mermaid
+graph LR
+    A[Fork & Clone] --> B[Run Script]
+    B --> C[Upload JSON]
+    C --> D[Create PR]
+    D --> E[Get Certificate!]
 ```
 
-### Step 2: Clone Your Fork (NOT the Original Repo!)
-
-**⚠️ IMPORTANT: Clone YOUR forked repository, NOT the original!**
+### Step 1: Fork & Clone
 
 ```bash
-# Replace YOUR_USERNAME with YOUR actual GitHub username
+# 1. Fork this repo on GitHub
+# 2. Clone YOUR fork:
 git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 cd pivalue.world
 ```
 
-**Example for user @Blime-Online:**
-```bash
-git clone https://github.com/Blime-Online/pivalue.world.git
-cd pivalue.world
-```
-
-**❌ WRONG - Don't clone the original repo:**
-```bash
-# DON'T DO THIS (this clones harinandsindukumar's repo):
-git clone https://github.com/harinandsindukumar/pivalue.world.git
-```
-
-**✅ CORRECT - Clone YOUR fork:**
-```bash
-# DO THIS (clone your own fork):
-git clone https://github.com/YOUR_USERNAME/pivalue.world.git
-```
-
-**Why?** You can only push to repositories you own. You need to push to YOUR fork!
-
-### Step 3: Create Your Branch (DO THIS FIRST!)
-
-**IMMEDIATELY after cloning, create your submission branch:**
+### Step 2: Run the Script
 
 ```bash
-# Navigate into the cloned repository
-cd pivalue.world
-
-# Create and switch to a new branch for your submission
-git checkout -b submission/YOUR_USERNAME-timestamp
+python piclalculation.py
 ```
 
-**Example:**
-```bash
-cd pivalue.world
-git checkout -b submission/harinandsindukumar-1711812345
-```
+**The script will:**
+1. Ask for your GitHub username
+2. Ask you to choose time (2/5/10 minutes)
+3. Calculate 22/7 repeatedly
+4. Generate your unique codes
+5. **Show you the result** - save this!
 
-**Why create a branch NOW?**
-- ✅ Best practice in Git workflow
-- ✅ Keeps main branch clean
-- ✅ Required for submission acceptance
-- ✅ Makes pull request creation easier
-- ⚠️ **You CANNOT submit from main branch!**
+**You'll get:**
+- Verification Code (16 characters)
+- Submission ID (12 characters)
+- A JSON file named: `pi_result_YOUR_USERNAME.json`
 
-**Verify you're on the correct branch:**
-```bash
-git branch
-```
-The `*` should show your new branch name, NOT `main`.
+### Step 3: Upload & Submit
 
-### Step 4: Run the Calculation Script
-
-```bash
-python src/piclalculation.py
-```
-
-**Requirements:**
-- Python 3.6 or higher
-- No external dependencies required!
-
-### Step 5: Get Your Codes
-
-1. Enter your GitHub username
-2. Choose your time limit (2, 5, or 10 minutes)
-3. Let the script calculate 22/7 repeatedly
-4. **Auto-saves to verification_list/** ✅
-5. **Save your Verification Code + Submission ID!** 🔑
-
-### Step 6: Submit to GitHub (ONE COMMAND!)
-
-**IMPORTANT: Make sure you're on your submission branch!**
-
-```bash
-# Check current branch
-git branch
-# Should show: * submission/yourname-timestamp
-
-# If on main, switch to your branch first:
-git checkout submission/YOUR_USERNAME-timestamp
-
-# Then run submission
-python submit_now.py
-```
-
-**What it does automatically:**
-- 📝 **Adds files to git**
-- 💾 **Commits changes**
-- 🚀 **Pushes branch to GitHub**
-
-**The script will check:**
-- ✅ You're on a branch (not main)
-- ✅ Files are ready to commit
-- ✅ Everything pushes successfully
-
-**⚠️ If you're on main branch, script will warn you!**
-
-**Example output:**
-```
-📋 Current branch: submission/harinandsindukumar-1711812345
-✅ Added 1 file(s)
-✅ Committed successfully!
-✅ Pushed to GitHub!
-```
-
-### Step 7: Create Pull Request & Get Certificate!
+1. **Go to your fork on GitHub**
+2. **Navigate to** `verification_list/` folder
+3. **Click** "Add file" → "Create new file"
+4. **Name it:** `pi_result_YOUR_USERNAME.json`
+5. **Paste** the JSON data from your computer
+6. **Click** "Commit changes"
+7. **Create Pull Request** from your branch
 
 **After merge (1-3 days):**
 - ✅ Website auto-verifies your submission
-- ✅ Status: Not Verified → VERIFIED
-- ✅ Download at: https://pivalue.iths.online/search
+- ✅ Download certificate at: https://pivalue.iths.online/search
 
 ---
 
-## 📋 How It Works
+## 📋 Complete Workflow
+
+**Simple 3-Step Process:**
 
 ```
-┌─────────────────┐
-│  1. Fork Repo   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  2. Clone       │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  3. Run Script  │ ───► Calculates 22/7 repeatedly
-└────────┬────────┘      Records PC performance
-         │
-         ▼
-┌─────────────────┐
-│  4. Get Code    │ ───► Unique 16-char code + ID
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  5. CREATE      │ ───► git checkout -b
-│     BRANCH      │      submission/username...
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  6. SUBMIT      │ ───► python submit_now.py
-└────────┬────────┘      Adds, commits, pushes
-         │
-         ▼
-┌─────────────────┐
-│  7. CREATE PR   │ ───► On GitHub
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  8. After Merge │ ───► Auto-verify → Certificate!
-└─────────────────┘
+1. Fork & Clone → Run script → Get JSON data
+                ↓
+2. Upload JSON to verification_list/ folder on GitHub
+                ↓
+3. Create Pull Request → Wait for merge → Get Certificate!
 ```
+
+**That's it! No complex Git commands needed!**
 
 ---
 
@@ -260,7 +152,7 @@ Enter choice (1/2/3): 2
 
 ## 🏆 Certificate Details
 
-Each certificate includes:
+**Each certificate includes:**
 - ✅ Your GitHub username
 - ✅ Time limit chosen
 - ✅ Number of calculations performed
@@ -279,7 +171,7 @@ Each certificate includes:
 ## 🔍 Search & Verify
 
 Anyone can verify certificates:
-1. Visit [https://pivalue.world/search](https://pivalue.iths.online/search)
+1. Visit https://pivalue.iths.online/search
 2. Enter the Submission ID
 3. View complete details and authenticity
 
@@ -327,7 +219,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
 
-### Ways to Contribute:
+**Ways to Contribute:**
 - 🐛 Report bugs
 - 💡 Suggest features
 - 🎨 Improve UI/UX
@@ -348,7 +240,8 @@ Top performers will be featured on our website. Think you have the fastest PC? P
 - **Email:** harinand@iths.online
 - **Website:** https://iths.online
 - **Discussions:** [GitHub Discussions](https://github.com/harinandsindukumar/pivalue.world/discussions)
-- **Creator:** [Harinand Sindukumar](https://github.com/harinandsindukumar/)
+
+**Creator:** Harinand Sindukumar
 
 ---
 
@@ -357,17 +250,18 @@ Top performers will be featured on our website. Think you have the fastest PC? P
 Thanks to all contributors and participants who make Pi Value World possible!
 
 **Created & Maintained by:**
-- [@harinandsindukumar](https://github.com/harinandsindukumar/) - Harinand Sindukumar
-- Contact: harinand@iths.online
-- Website: https://iths.online
+
+[@harinandsindukumar](https://github.com/harinandsindukumar) - Harinand Sindukumar  
+**Contact:** harinand@iths.online  
+**Website:** https://iths.online
 
 ---
 
 ## 📊 Project Stats
 
-![GitHub repo size](https://img.shields.io/github/repo-size/harinandsindukumar/pivalue.world)
-![GitHub last commit](https://img.shields.io/github/last-commit/harinandsindukumar/pivalue.world)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/harinandsindukumar/pivalue.world)
+[![GitHub repo size](https://img.shields.io/github/repo-size/harinandsindukumar/pivalue.world)](https://github.com/harinandsindukumar/pivalue.world)
+[![GitHub last commit](https://img.shields.io/github/last-commit/harinandsindukumar/pivalue.world)](https://github.com/harinandsindukumar/pivalue.world/commits/main)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/harinandsindukumar/pivalue.world)](https://github.com/harinandsindukumar/pivalue.world/pulls)
 
 ---
 
@@ -375,19 +269,13 @@ Thanks to all contributors and participants who make Pi Value World possible!
 
 Love this project? Star it on GitHub and share with your friends! ⭐
 
-```
-Made with ❤️ by the Pi Value World Community
-© 2024 Pi Value World. All rights reserved.
-```
-
 ---
 
-<div align="center">
+Made with ❤️ by the Pi Value World Community  
+© 2024 Pi Value World. All rights reserved.
 
-### 🥧 Keep Calculating! 🥧
+# 🥧 Keep Calculating! 🥧
 
-**Current Pi Counter on Website: 3.14** (increments with each merge!)
+**Current Pi Counter on Website:** 3.14 (increments with each merge!)
 
 [⬆ Back to Top](#-pi-value-world)
-
-</div>
