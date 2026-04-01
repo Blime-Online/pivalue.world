@@ -149,10 +149,13 @@ def main():
     print(f"\n💾 Results saved to: {result_file}")
     print(f"📂 Verification copy saved to: {verification_path}")
     print("=" * 60)
-    print("\n?? NEXT STEPS - SUPER SIMPLE!")
-    print("1. ? Result file created (done!)")\n    print("2. ? Auto-added to verification_list/ (done!)")\n    print("3. ?? Run these commands:")
-    print("3. Create a GitHub Pull Request with your submission")
-    print("4. Once merged, the website scans and verifies your code/ID and generates the certificate!\n")
+    print("\n🎯 NEXT STEPS - SUPER SIMPLE!")
+    print("1. ✅ Result file created (done!)")
+    print("2. ✅ Auto-added to verification_list/ (done!)")
+    print("3. 🚀 Run: python submit_now.py")
+    print("4. 📝 Create GitHub Pull Request")
+    print("5. ⏳ Wait for merge (1-3 days)")
+    print("6. 🎉 Website auto-verifies → Certificate!\n")
     
     # Offer to copy code
     copy_choice = input("Would you like to save the code to clipboard? (y/n): ").strip().lower()
