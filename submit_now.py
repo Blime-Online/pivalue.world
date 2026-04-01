@@ -23,16 +23,42 @@ print("=" * 60)
 print("🥧 Pi Value World - Complete Submission")
 print("=" * 60)
 
-# Find JSON files
-json_files = [f for f in os.listdir('verification_list') 
-              if f.startswith('pi_result_') and f.endswith('.json')]
+# Find JSON files in root directory first
+root_json_files = [f for f in os.listdir('.') 
+                   if f.startswith('pi_result_') and f.endswith('.json')]
+
+# Also check verification_list directory
+verification_json_files = [f for f in os.listdir('verification_list') 
+                           if f.startswith('pi_result_') and f.endswith('.json')]
+
+# Combine both lists
+json_files = root_json_files + verification_json_files
 
 if not json_files:
     print("\n❌ No submission files found!")
-    print("Run: python src/piclalculation.py")
+    print("\n💡 Did you forget to run the calculation script?")
+    print("   Run: python src/piclalculation.py")
+    print("\n   OR did you forget to move your file to verification_list/ ?")
+    print("   Copy your pi_result_*.json to verification_list/")
     sys.exit(1)
 
 print(f"\n✅ Found {len(json_files)} file(s)")
+
+# If files are in root, offer to move them
+if root_json_files:
+    print(f"\n📂 Found {len(root_json_files)} file(s) in root directory")
+    for filename in root_json_files:
+        print(f"   - {filename}")
+    
+    # Auto-move to verification_list
+    import shutil
+    for filename in root_json_files:
+        src = os.path.join('.', filename)
+        dst = os.path.join('verification_list', filename)
+        shutil.move(src, dst)
+        print(f"   ✅ Moved: {filename} → verification_list/")
+    
+    print("\n💡 Files moved to verification_list/ automatically!")
 
 # Read username
 with open(os.path.join('verification_list', json_files[0]), 'r') as f:
@@ -69,7 +95,14 @@ if not success:
 success, staged = run_command("git diff --cached --name-only")
 if not staged.strip():
     print("\n⚠️  No files to add!")
-    print("Maybe already committed?")
+    print("\n💡 Possible reasons:")
+    print("   1. File already committed in this branch")
+    print("   2. File not in verification_list/ directory")
+    print("   3. Git tracking issue")
+    print("\n✅ Quick fix:")
+    print("   git status  (check what's changed)")
+    print("   git reset   (unstage if needed)")
+    print("   Then run this script again")
     sys.exit(1)
 
 print(f"✅ Added {len(staged.strip().split())} file(s)")
