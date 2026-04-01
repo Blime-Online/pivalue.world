@@ -121,6 +121,30 @@ if not success:
 success, staged = run_command("git diff --cached --name-only")
 if not staged.strip():
     print("\n⚠️  No files to add!")
+    
+    # Check if files were already committed
+    success, unstaged = run_command("git status --porcelain verification_list/")
+    if unstaged.strip():
+        print("\n📂 Files found but not staged!")
+        print("\n💡 Solution: Reset and try again")
+        print("   Run these commands:")
+        print("   git reset")
+        print("   python submit_now.py")
+        sys.exit(1)
+    
+    # Check if already committed in this branch
+    success, log = run_command(f"git log {current_branch} --oneline -1")
+    if log.strip():
+        print("\n✅ Files already committed in this branch!")
+        print(f"\n📋 Current branch '{current_branch}' already has your submission.")
+        print("\n💡 Next step: Just push to GitHub")
+        print("   Run: git push -u origin", current_branch)
+        print("\n   OR create a new branch with a fresh timestamp:")
+        print("   git checkout main")
+        print("   git checkout -b submission/YOUR_USERNAME-newtimestamp")
+        print("   Then run this script again")
+        sys.exit(1)
+    
     print("\n💡 Possible reasons:")
     print("   1. File already committed in this branch")
     print("   2. File not in verification_list/ directory")
