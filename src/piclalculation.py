@@ -149,8 +149,8 @@ def main():
     print(f"\n💾 Results saved to: {result_file}")
     print(f"📂 Verification copy saved to: {verification_path}")
     print("=" * 60)
-    print("1. Copy your Verification Code and Submission ID")
-    print("2. Add the JSON output file to the repository verification list (e.g., verification_list/")
+    print("\n?? NEXT STEPS - SUPER SIMPLE!")
+    print("1. ? Result file created (done!)")\n    print("2. ? Auto-added to verification_list/ (done!)")\n    print("3. ?? Run these commands:")
     print("3. Create a GitHub Pull Request with your submission")
     print("4. Once merged, the website scans and verifies your code/ID and generates the certificate!\n")
     
@@ -170,3 +170,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
