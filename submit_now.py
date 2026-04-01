@@ -77,6 +77,32 @@ if not success:
 current_branch = current_branch.strip()
 print(f"✅ Current branch: {current_branch}")
 
+# Check remote URL to verify it's a fork
+print("\n🔍 Checking repository remote...")
+success, remote_url = run_command('git remote get-url origin')
+if success:
+    remote_url = remote_url.strip()
+    if 'harinandsindukumar/pivalue.world' in remote_url:
+        print("\n⚠️  WARNING: You're trying to push to the ORIGINAL repo!")
+        print("\n❌ This won't work - you don't have permission to push here.")
+        print("\n💡 You need to:")
+        print("   1. Fork the repository on GitHub first")
+        print("   2. Clone YOUR fork (not the original)")
+        print("   3. Then run this script")
+        print("\n📋 Correct workflow:")
+        print("   # Go to: https://github.com/harinandsindukumar/pivalue.world")
+        print("   # Click 'Fork' button")
+        print("   # Then clone YOUR fork:")
+        print(f"   git clone https://github.com/YOUR_USERNAME/pivalue.world.git")
+        print(f"   cd pivalue.world")
+        print(f"   git checkout -b {current_branch}")
+        print(f"   python submit_now.py")
+        sys.exit(1)
+    else:
+        print(f"✅ Remote URL looks correct: {remote_url}")
+else:
+    print("⚠️  Could not check remote URL")
+
 if current_branch == 'main':
     print("\n⚠️  WARNING: You're on main branch!")
     print("You should create a new branch first:")

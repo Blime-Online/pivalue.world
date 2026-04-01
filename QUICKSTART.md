@@ -6,16 +6,47 @@
 
 ## For Participants (Want to earn a certificate?)
 
-### Step 1: Clone Repository (2 minutes)
+### Step 0: Fork the Repository (DO THIS FIRST!)
+
+**⚠️ IMPORTANT: Fork BEFORE cloning!**
+
+1. Go to: https://github.com/harinandsindukumar/pivalue.world
+2. Click "Fork" button (top right corner)
+3. GitHub creates YOUR copy at: `https://github.com/YOUR_USERNAME/pivalue.world`
+
+**Why fork first?** You need your own copy to push branches to!
+
+### Step 1: Clone YOUR Fork (NOT the Original!)
+
+**⚠️ Clone YOUR forked repository, NOT the original!**
 
 ```bash
-git clone https://github.com/harinandsindukumar/pivalue.world.git
+# Replace YOUR_USERNAME with YOUR actual GitHub username
+git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 cd pivalue.world
+```
+
+**Example for @Blime-Online:**
+```bash
+git clone https://github.com/Blime-Online/pivalue.world.git
+cd pivalue.world
+```
+
+**❌ WRONG - Don't clone the original repo:**
+```bash
+# DON'T do this (can't push to harinandsindukumar's repo):
+git clone https://github.com/harinandsindukumar/pivalue.world.git
+```
+
+**✅ CORRECT - Clone YOUR own fork:**
+```bash
+# DO this (clone your own fork where you have write access):
+git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 ```
 
 Don't have Git? [Download here](https://git-scm.com/)
 
-Or download as ZIP from GitHub and extract.
+Or download as ZIP from YOUR fork on GitHub and extract.
 
 ### Step 2: Create Your Branch (DO THIS IMMEDIATELY!)
 

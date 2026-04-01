@@ -40,12 +40,35 @@ Pi Value World is a fun, open-source project where developers worldwide test the
 # https://github.com/harinandsindukumar/pivalue.world
 ```
 
-### Step 2: Clone Your Fork
+### Step 2: Clone Your Fork (NOT the Original Repo!)
+
+**⚠️ IMPORTANT: Clone YOUR forked repository, NOT the original!**
 
 ```bash
+# Replace YOUR_USERNAME with YOUR actual GitHub username
 git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 cd pivalue.world
 ```
+
+**Example for user @Blime-Online:**
+```bash
+git clone https://github.com/Blime-Online/pivalue.world.git
+cd pivalue.world
+```
+
+**❌ WRONG - Don't clone the original repo:**
+```bash
+# DON'T DO THIS (this clones harinandsindukumar's repo):
+git clone https://github.com/harinandsindukumar/pivalue.world.git
+```
+
+**✅ CORRECT - Clone YOUR fork:**
+```bash
+# DO THIS (clone your own fork):
+git clone https://github.com/YOUR_USERNAME/pivalue.world.git
+```
+
+**Why?** You can only push to repositories you own. You need to push to YOUR fork!
 
 ### Step 3: Create Your Branch (DO THIS FIRST!)
 
