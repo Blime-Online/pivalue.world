@@ -146,21 +146,106 @@ def main():
     with open(verification_path, 'w') as f:
         json.dump(result_data, f, indent=2)
 
+    # 🆕 INSERT INTO DATABASE IMMEDIATELY AS PENDING!
+    print("\n🔄 Inserting into database as 'pending'...")
+    try:
+        # Check if .env file exists for Supabase credentials
+        env_file = '.env'
+        if os.path.exists(env_file):
+            from dotenv import load_dotenv
+            load_dotenv()
+            
+            SUPABASE_URL = os.getenv('SUPABASE_URL')
+            SUPABASE_SERVICE_ROLE_KEY = os.getenv('SUPABASE_SERVICE_ROLE_KEY')
+            
+            if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
+                import requests
+                
+                # Insert as pending status with COMPLETE data
+                db_payload = {
+                    'github_username': str(github_username),
+                    'verification_code': str(verification_code),
+                    'submission_id': str(submission_id),
+                    'time_limit': int(time_limit),
+                    'calculations_performed': int(calculations),
+                    'precision_digits': int(precision),
+                    'elapsed_seconds': float(round(elapsed_time, 2)),
+                    'result': str(result_str),
+                    'status': 'pending',  # ← PENDING until PR merge!
+                    'submitted_at': datetime.now().isoformat(),
+                    # Store complete JSON data for reference
+                    'verified_by': None,
+                    'verified_at': None
+                }
+                
+                print(f"📊 Complete data being inserted:")
+                print(f"   - Username: {github_username}")
+                print(f"   - Time Limit: {time_limit} min")
+                print(f"   - Calculations: {calculations:,}")
+                print(f"   - Precision: {precision} digits")
+                print(f"   - Elapsed: {elapsed_time:.2f}s")
+                print(f"   - Status: pending")
+                
+                headers = {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_SERVICE_ROLE_KEY,
+                    'Authorization': f'Bearer {SUPABASE_SERVICE_ROLE_KEY}'
+                }
+                
+                insert_url = f'{SUPABASE_URL}/rest/v1/submissions'
+                response = requests.post(insert_url, headers=headers, json=db_payload)
+                
+                if response.ok:
+                    print("✅ Record created in database with status: PENDING")
+                    print("   Search will show your submission (but marked as pending)")
+                    print("   After PR merge → GitHub Actions will update to VERIFIED")
+                else:
+                    print(f"⚠️  Could not insert into database: {response.status_code}")
+                    print("   No worries - will be inserted after PR merge!")
+            else:
+                print("⚠️  Supabase credentials not found in .env")
+                print("   Record will be created after PR merge via GitHub Actions")
+        else:
+            print("⚠️  No .env file found - skipping immediate database insert")
+            print("   Record will be created after PR merge via GitHub Actions")
+    except Exception as e:
+        print(f"⚠️  Database insert failed: {e}")
+        print("   No worries - GitHub Actions will handle it after PR merge!")
+
     print(f"\n💾 Results saved to: {result_file}")
     print(f"📂 Verification copy saved to: {verification_path}")
     print("=" * 60)
     print("\n🎯 NEXT STEPS - SUPER SIMPLE!")
-    print("1. ✅ Result file created in verification_list/ (done!)")
-    print("2. 📋 Copy the JSON data shown above")
-    print("3. 🌐 Go to your fork on GitHub")
-    print("4. 📁 Navigate to verification_list/ folder")
-    print("5. ➕ Click 'Add file' → 'Create new file'")
-    print(f"6. 📝 Name it: pi_result_{github_username}.json")
-    print("7. 📋 Paste the JSON data")
-    print("8. ✅ Commit changes")
-    print("9. 🔄 Create Pull Request")
-    print("10. ⏳ Wait for merge (1-3 days)")
-    print("11. 🎉 Website auto-verifies → Certificate!\n")
+    print("=" * 70)
+    print("⚠️  IMPORTANT: Your data is NOT in database yet!")
+    print("   You MUST upload this file to GitHub first.")
+    print("=" * 70)
+    print("\n📋 STEP-BY-STEP:")
+    print("1. ✅ Result file created in verification_list/ folder")
+    print(f"   File: verification_list/pi_result_{github_username}.json")
+    print("\n2. 📋 Copy the ENTIRE JSON content shown above")
+    print("   (Select all text from { to } and copy)")
+    print("\n3. 🌐 Go to YOUR fork on GitHub:")
+    print(f"   https://github.com/{github_username}/pivalue.world")
+    print("\n4. 📁 Navigate to 'verification_list' folder")
+    print("\n5. ➕ Click 'Add file' → 'Create new file'")
+    print(f"\n6. 📝 Name it EXACTLY: pi_result_{github_username}.json")
+    print("\n7. 📋 PASTE the JSON data into the file editor")
+    print("\n8. ✍️  Add commit message: 'Add my submission'")
+    print("\n9. ✅ Click 'Commit changes'")
+    print("\n10. 🔄 Create Pull Request:")
+    print("    - Click 'Pull requests' tab")
+    print("    - Click 'New pull request'")
+    print("    - Select your branch")
+    print("    - Click 'Create pull request'")
+    print("\n11. ⏳ Wait for merge (1-3 days)")
+    print("\n12. 🎉 AFTER MERGE:")
+    print("    - GitHub Actions auto-syncs to database")
+    print("    - Search works at: https://pivalue.iths.online/search")
+    print("    - Download certificate!")
+    print("=" * 70)
+    print("\n💡 REMEMBER: Database record is created ONLY after PR merge!")
+    print("   Until then, searching won't find your submission.\n")
     
     # Offer to copy code
     copy_choice = input("Would you like to save the code to clipboard? (y/n): ").strip().lower()
