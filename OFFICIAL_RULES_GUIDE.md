@@ -104,21 +104,38 @@ We pledge to make participation in Pi Value World a harassment-free experience f
    - The script saves a JSON file (e.g., `pi_result_yourusername.json`).
    - Verify `github_username`, `submission_id`, and `verification_code` are correct.
 
-3. **Add to Verification List
+3. **Create Submission Branch (REQUIRED!)**
+   - Create a new branch for your submission:
+     ```bash
+     git checkout -b submission/YOUR_USERNAME-timestamp
+     ```
+   - ⚠️ Submissions from main branch will be rejected!
+   - This keeps the repository organized and makes review easier.
+
+4. **Add to Verification List**
    - Add your result JSON to the repository verification list path (e.g., `verification_list/`).
    - Include a short README update in your PR describing the run.
 
-4. **Create Pull Request**
-   - Fork the repository.
-   - Commit your submission file.
-   - Open a PR titled `feat: add submission for <username>`.
+5. **Submit Using Script**
+   - Run: `python submit_now.py`
+   - This automatically adds, commits, and pushes your files to your current branch.
+   - The script will verify you're on a branch (not main) before proceeding.
 
-5. **Automatic Scan & Verification**
+6. **Create Pull Request**
+   - Fork the repository (if not already done).
+   - Go to your fork on GitHub.
+   - You'll see your pushed branch.
+   - Click "Pull requests" → "New pull request".
+   - Select: `base: main ← compare: submission/yourname`
+   - Title: `feat: add submission for <username>`.
+   - Include your Submission ID + Verification Code in the PR description.
+
+7. **Automatic Scan & Verification**
    - Once merged, the web system scans the verification list.
    - It checks Submission ID + Verification Code and marks the record as verified.
    - Your certificate is generated automatically.
 
-6. **Approval / Certificate**
+8. **Approval / Certificate**
    - You may still receive manual review details via PR comments.
    - Verified entries appear in the search page within minutes.
 

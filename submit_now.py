@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Complete Submission - Creates branch, adds files, commits, and pushes
-Run this ONCE to do everything automatically
+Complete Submission - Adds files, commits, and pushes to CURRENT BRANCH
+IMPORTANT: You must create and checkout your branch BEFORE running this!
+Run: git checkout -b submission/yourname-timestamp
+Then run: python submit_now.py
 """
 
 import os
@@ -39,19 +41,25 @@ with open(os.path.join('verification_list', json_files[0]), 'r') as f:
 
 print(f"👤 Username: @{username}")
 
-# Create branch name
-branch_name = f"submission/{username}-{int(time.time())}"
-
-# Step 1: Create branch
-print(f"\n🌿 Step 1/4: Creating branch: {branch_name}...")
-success, output = run_command(f'git checkout -b {branch_name}')
+# Check current branch
+print("\n📋 Step 1/4: Checking current branch...")
+success, current_branch = run_command('git rev-parse --abbrev-ref HEAD')
 if not success:
-    print(f"❌ Failed: {output}")
+    print(f"❌ Failed to get current branch: {current_branch}")
     sys.exit(1)
-print(f"✅ Created branch: {branch_name}")
+
+current_branch = current_branch.strip()
+print(f"✅ Current branch: {current_branch}")
+
+if current_branch == 'main':
+    print("\n⚠️  WARNING: You're on main branch!")
+    print("You should create a new branch first:")
+    print(f"   git checkout -b submission/{username}-{int(time.time())}")
+    print("\nThen run this script again.")
+    sys.exit(1)
 
 # Step 2: Add files
-print("\n📝 Step 2/4: Adding files...")
+print(f"\n📝 Step 2/4: Adding files to {current_branch}...")
 success, output = run_command("git add -A verification_list/")
 if not success:
     print(f"❌ Failed: {output}")
@@ -77,22 +85,22 @@ print("✅ Committed successfully!")
 
 # Step 4: Push
 print("\n🚀 Step 4/4: Pushing to GitHub...")
-success, output = run_command(f'git push -u origin {branch_name}')
+success, output = run_command(f'git push -u origin {current_branch}')
 if not success:
     print(f"❌ Failed: {output}")
-    print(f"\nManual fix: git push -u origin {branch_name}")
+    print(f"\nManual fix: git push -u origin {current_branch}")
     sys.exit(1)
 print("✅ Pushed successfully!")
 
 print("\n" + "=" * 60)
 print("🎉 SUCCESS!")
 print("=" * 60)
-print(f"\n✨ Your branch is ready: {branch_name}")
+print(f"\n✨ Your code is on branch: {current_branch}")
 print("\n📋 Create Pull Request:")
 print("1. GitHub will show link automatically")
 print("2. Or go to: https://github.com/harinandsindukumar/pivalue.world")
 print("3. Click 'Pull requests' → 'New pull request'")
-print(f"4. Select: base: main ← compare: {branch_name}")
+print(f"4. Select: base: main ← compare: {current_branch}")
 print(f"5. Title: feat: add submission for {username}")
 print("\n💡 Include your codes from the JSON file!")
 print("=" * 60)

@@ -7,11 +7,11 @@
 
 ---
 
-## 🎯 The Complete Workflow (6 Simple Steps)
+## 🎯 The Complete Workflow (7 Simple Steps)
 
 ```
 USER JOURNEY:
-Fork Repo → Clone → Run Script → Get Codes → Add to Verification → PR → Certificate!
+Fork Repo → Clone → Create Branch (FIRST!) → Run Script → Get Codes → Add to Verification → PR → Certificate!
 ```
 
 ---
@@ -47,7 +47,44 @@ cd pivalue.world
 
 ---
 
-## Step 3: Run the Calculation File
+## Step 3: Create Your Branch (DO THIS IMMEDIATELY!)
+
+**⚠️ CRITICAL: Create your branch RIGHT AFTER cloning, BEFORE running any scripts!**
+
+**Navigate into the repository:**
+```bash
+cd pivalue.world
+```
+
+**Create and switch to submission branch:**
+```bash
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+cd pivalue.world
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**Why create branch NOW?**
+- ✅ Best Git workflow practice
+- ✅ Prevents accidental commits to main
+- ✅ Keeps repository organized
+- ✅ Required for submission acceptance
+- ✅ Makes PR creation easier
+
+**Verify you're on correct branch:**
+```bash
+git branch
+```
+The `*` should show `submission/yourname`, NOT `main`.
+
+**⚠️ WARNING:** If you accidentally run scripts from main branch, create your branch now and continue!
+
+---
+
+## Step 4: Run the Calculation File
 
 **In your terminal:**
 
@@ -112,7 +149,41 @@ Enter choice (1/2/3): 2
 
 ---
 
-## Step 4: Add to Verification Folder
+## Step 5: Create Your Branch (REQUIRED!)
+
+**⚠️ CRITICAL: You MUST create a new branch before submitting!**
+
+**Why branches are required:**
+- Keeps main branch clean and stable
+- Standard GitHub contribution workflow
+- Makes pull request review easier
+- Required for submission acceptance
+- Prevents conflicts with other submissions
+
+**Create and switch to a submission branch:**
+
+```bash
+# Replace YOUR_USERNAME with your actual username
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**Check your current branch:**
+```bash
+git branch
+```
+
+The `*` shows your current branch. Make sure you're NOT on `main`!
+
+**⚠️ IMPORTANT:** The `submit_now.py` script will check that you're on a branch (not main) before proceeding!
+
+---
+
+## Step 6: Add to Verification Folder
 
 **Navigate to verification folder:**
 
@@ -148,7 +219,7 @@ cp pi_result_harinandsindukumar.json verification_list/
 
 ---
 
-## Step 5: Create Pull Request
+## Step 7: Create Pull Request
 
 **Go to GitHub:**
 
@@ -191,7 +262,7 @@ Thank you! 🥧
 
 ---
 
-## Step 6: Website Verifies & Generates Certificate
+## Step 8: Website Verifies & Generates Certificate
 
 ### Automatic Process:
 

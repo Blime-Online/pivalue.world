@@ -17,7 +17,28 @@ Don't have Git? [Download here](https://git-scm.com/)
 
 Or download as ZIP from GitHub and extract.
 
-### Step 2: Run the Script (30 seconds)
+### Step 2: Create Your Branch (DO THIS IMMEDIATELY!)
+
+**RIGHT after cloning, create your submission branch:**
+
+```bash
+# Go into the repository folder
+cd pivalue.world
+
+# Create and switch to your submission branch
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+cd pivalue.world
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**⚠️ CRITICAL:** Do this BEFORE running any scripts!
+**❌ NEVER work on main branch!**
+
+### Step 3: Run the Script (2-10 minutes)
 
 ```bash
 python piclalculation.py
@@ -25,7 +46,7 @@ python piclalculation.py
 
 **No Python?** Download from [python.org](https://www.python.org/)
 
-### Step 3: Follow Prompts (2-10 minutes)
+### Step 4: Get Your Codes
 
 The script will ask you:
 
@@ -48,22 +69,49 @@ The script will ask you:
    - **Submission ID**: 12 characters (e.g., `abc123def456`)
    - **IMPORTANT**: Screenshot or write these down!
 
-### Step 4: Submit for Verification (1 minute)
+### Step 5: Submit for Verification (1 minute)
+
+**BEFORE submitting, verify you're on your branch:**
+
+```bash
+# Check current branch
+git branch
+# Should show: * submission/yourname-timestamp
+```
+
+**If you accidentally ran the script from main branch:**
+```bash
+# Create your submission branch now
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+Then continue with submission.
+
+### Step 6: PR Review and Merge (2 minutes)
+
+**IMPORTANT: You should already be on your submission branch!**
 
 1. After calculation finishes, locate `pi_result_{username}.json`.
-2. Add this file to the repository verification list (for example: `verification_list/`).
-3. Commit and push to your fork.
-4. Create a Pull Request with the details.
+2. Add this file to the repository verification list: `verification_list/`.
+3. **Verify you're on correct branch:**
+   ```bash
+   git branch
+   # Should show: * submission/yourname-timestamp
+   ```
+4. Run: `python submit_now.py`
+   - This adds, commits, and pushes your files.
+5. Create a Pull Request on GitHub.
 
-### Step 5: PR Review and Merge (2 minutes)
+### Step 6: PR Review and Merge (2 minutes)
 
 1. Go to GitHub repository
-2. Fork the repository
-3. Upload your submission file
-4. Create a Pull Request
-5. Wait for approval
+2. You'll see your pushed branch
+3. Click "Pull requests" → "New pull request"
+4. Select: `base: main ← compare: your-branch`
+5. Fill in PR description with your codes
+6. Wait for approval
 
-### Step 6: Get Your Certificate! (After approval)
+### Step 7: Get Your Certificate! (After approval)
 
 Once your PR is merged:
 

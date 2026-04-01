@@ -47,7 +47,38 @@ git clone https://github.com/YOUR_USERNAME/pivalue.world.git
 cd pivalue.world
 ```
 
-### Step 3: Run the Calculation Script
+### Step 3: Create Your Branch (DO THIS FIRST!)
+
+**IMMEDIATELY after cloning, create your submission branch:**
+
+```bash
+# Navigate into the cloned repository
+cd pivalue.world
+
+# Create and switch to a new branch for your submission
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+cd pivalue.world
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**Why create a branch NOW?**
+- ✅ Best practice in Git workflow
+- ✅ Keeps main branch clean
+- ✅ Required for submission acceptance
+- ✅ Makes pull request creation easier
+- ⚠️ **You CANNOT submit from main branch!**
+
+**Verify you're on the correct branch:**
+```bash
+git branch
+```
+The `*` should show your new branch name, NOT `main`.
+
+### Step 4: Run the Calculation Script
 
 ```bash
 python src/piclalculation.py
@@ -57,7 +88,7 @@ python src/piclalculation.py
 - Python 3.6 or higher
 - No external dependencies required!
 
-### Step 4: Follow the Prompts
+### Step 5: Get Your Codes
 
 1. Enter your GitHub username
 2. Choose your time limit (2, 5, or 10 minutes)
@@ -65,36 +96,43 @@ python src/piclalculation.py
 4. **Auto-saves to verification_list/** ✅
 5. **Save your Verification Code + Submission ID!** 🔑
 
-### Step 5: Auto-Submit to GitHub (ONE COMMAND!)
+### Step 6: Submit to GitHub (ONE COMMAND!)
+
+**IMPORTANT: Make sure you're on your submission branch!**
 
 ```bash
+# Check current branch
+git branch
+# Should show: * submission/yourname-timestamp
+
+# If on main, switch to your branch first:
+git checkout submission/YOUR_USERNAME-timestamp
+
+# Then run submission
 python submit_now.py
 ```
 
 **What it does automatically:**
-- 🌿 **Creates new branch**: `submission/yourname-timestamp`
 - 📝 **Adds files to git**
 - 💾 **Commits changes**
 - 🚀 **Pushes branch to GitHub**
 
+**The script will check:**
+- ✅ You're on a branch (not main)
+- ✅ Files are ready to commit
+- ✅ Everything pushes successfully
+
+**⚠️ If you're on main branch, script will warn you!**
+
 **Example output:**
 ```
-🌿 Created branch: submission/harinandsindukumar-1711812345
+📋 Current branch: submission/harinandsindukumar-1711812345
 ✅ Added 1 file(s)
 ✅ Committed successfully!
 ✅ Pushed to GitHub!
 ```
 
-### Step 6: Create Pull Request & Get Certificate!
-
-**GitHub shows PR link automatically!**
-
-Or manually:
-1. Go to: https://github.com/harinandsindukumar/pivalue.world
-2. Click 'Pull requests' → 'New pull request'
-3. Select: `base: main ← compare: submission/yourname...`
-4. Title: `feat: add submission for YOUR_USERNAME`
-5. Include your Submission ID + Verification Code
+### Step 7: Create Pull Request & Get Certificate!
 
 **After merge (1-3 days):**
 - ✅ Website auto-verifies your submission
@@ -127,17 +165,23 @@ Or manually:
          │
          ▼
 ┌─────────────────┐
-│  5. Auto-Submit │ ───► python submit_now.py
-└────────┬────────┘      Creates branch, commits, pushes
-         │
-         ▼
-┌─────────────────┐
-│  6. Create PR   │ ───► GitHub shows link!
+│  5. CREATE      │ ───► git checkout -b
+│     BRANCH      │      submission/username...
 └────────┬────────┘
          │
          ▼
 ┌─────────────────┐
-│  7. After Merge │ ───► Auto-verify → Certificate!
+│  6. SUBMIT      │ ───► python submit_now.py
+└────────┬────────┘      Adds, commits, pushes
+         │
+         ▼
+┌─────────────────┐
+│  7. CREATE PR   │ ───► On GitHub
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  8. After Merge │ ───► Auto-verify → Certificate!
 └─────────────────┘
 ```
 

@@ -1,6 +1,6 @@
 # 🥧 Pi Value World - Complete User Guide
 
-**Consistent 6-Step Workflow Across All Documentation**
+**Consistent 7-Step Workflow Across All Documentation**
 
 ---
 
@@ -11,10 +11,11 @@
 ```
 1. FORK    → Fork repository on GitHub
 2. CLONE   → Clone YOUR fork to computer  
-3. RUN     → Execute piclalculation.py
-4. GET     → Receive ID + Code (JSON file)
-5. VERIFY  → Add to verification_list/ + PR
-6. CERTIFY → Website auto-verifies → Certificate!
+3. BRANCH  → Create submission branch (DO THIS FIRST!)
+4. RUN     → Execute piclalculation.py
+5. GET     → Receive ID + Code (JSON file)
+6. VERIFY  → Add to verification_list/ + PR
+7. CERTIFY → Website auto-verifies → Certificate!
 ```
 
 **Domain:** https://pivalue.iths.online  
@@ -22,7 +23,7 @@
 
 ---
 
-## 📋 The Official 6-Step Process
+## 📋 The Official 7-Step Process
 
 ### Step 1: Fork the Repository
 
@@ -55,7 +56,46 @@ cd pivalue.world
 
 ---
 
-### Step 3: Run the Calculation Script
+### Step 3: Create Your Branch (DO THIS IMMEDIATELY AFTER CLONING!)
+
+**⚠️ CRITICAL: Create your branch RIGHT AFTER cloning, BEFORE running any scripts!**
+
+**Navigate into the repository:**
+```bash
+cd pivalue.world
+```
+
+**Create and switch to submission branch:**
+```bash
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+cd pivalue.world
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**Why create branch NOW?**
+- ✅ Best Git workflow practice
+- ✅ Prevents accidental commits to main
+- ✅ Keeps repository organized
+- ✅ Required for submission acceptance
+- ✅ Makes PR creation easier
+
+**Verify you're on correct branch:**
+```bash
+git branch
+```
+The `*` should show `submission/yourname`, NOT `main`.
+
+**⚠️ WARNING:** If you run scripts from main branch, you'll need to:
+1. Create your branch now: `git checkout -b submission/yourname`
+2. Continue with the workflow
+
+---
+
+### Step 4: Run the Calculation Script
 
 **In your terminal/command prompt:**
 
@@ -115,7 +155,41 @@ Enter choice (1/2/3): 2
 
 ---
 
-### Step 4: Add to Verification List
+### Step 5: Create Your Branch (REQUIRED!)
+
+**⚠️ CRITICAL: You MUST create a new branch before submitting!**
+
+**Create and switch to a submission branch:**
+
+```bash
+# Replace YOUR_USERNAME with your actual username
+git checkout -b submission/YOUR_USERNAME-timestamp
+```
+
+**Example:**
+```bash
+git checkout -b submission/harinandsindukumar-1711812345
+```
+
+**Why branches are required:**
+- ✅ Keeps main branch clean and stable
+- ✅ Standard GitHub contribution workflow
+- ✅ Makes pull request review easier
+- ✅ Required for submission acceptance
+- ✅ Prevents conflicts with other submissions
+
+**Check your current branch:**
+```bash
+git branch
+```
+
+The current branch will have a `*` next to it. Make sure you're NOT on `main`!
+
+**⚠️ WARNING:** If you try to run `submit_now.py` from main branch, it will warn you and refuse to proceed!
+
+---
+
+### Step 6: Add to Verification List
 
 **Navigate to verification folder:**
 
@@ -151,7 +225,7 @@ cp ../pi_result_harinandsindukumar.json .
 
 ---
 
-### Step 5: Create Pull Request
+### Step 7: Create Pull Request
 
 **Go to GitHub:**
 
@@ -294,20 +368,26 @@ USER SIDE:                          SYSTEM SIDE:
 └─────────────┘                     
          ↓                          
 ┌─────────────┐                     
-│ 3. RUN      │  → piclalculation.py
+│ 3. CREATE   │  → git checkout -b 
+│    BRANCH   │     submission/... 
+│   (FIRST!)  │  DO BEFORE SCRIPTS!
 └─────────────┘                     
          ↓                          
 ┌─────────────┐                     
-│ 4. GET      │  → Codes + JSON    
+│ 4. RUN      │  → piclalculation.py
 └─────────────┘                     
          ↓                          
 ┌─────────────┐                     
-│ 5. ADD to   │  → verification_/  
+│ 5. GET      │  → Codes + JSON    
+└─────────────┘                     
+         ↓                          
+┌─────────────┐                     
+│ 6. ADD to   │  → verification_/  
 │  verify_list│                    
 └─────────────┘                     
          ↓                          
 ┌─────────────┐                     
-│ 6. CREATE   │  → On GitHub       
+│ 7. CREATE   │  → On GitHub       
 │     PR      │                    
 └─────────────┘                     
          ↓                          
@@ -486,9 +566,10 @@ All guides use the SAME consistent workflow:
 
 **All official documentation now uses:**
 
-- ✅ Same 6-step workflow
+- ✅ Same 7-step workflow
 - ✅ Same domain: pivalue.iths.online
 - ✅ Same script name: piclalculation.py
+- ✅ Same branch requirement: submission/username...
 - ✅ Same verification method: verification_list/
 - ✅ Same certificate generation: automatic after PR merge
 - ✅ Same contact information throughout
@@ -505,8 +586,9 @@ All guides use the SAME consistent workflow:
 2. **CLONE** → Download to computer
 3. **RUN** → Execute calculation script
 4. **GET** → Save your two codes
-5. **VERIFY** → Add to folder + PR
-6. **CERTIFY** → Auto-verified → Download!
+5. **BRANCH** → Create submission branch (REQUIRED!)
+6. **VERIFY** → Add to folder + PR
+7. **CERTIFY** → Auto-verified → Download!
 
 **Simple, clear, and consistent across all guides! 🥧**
 
